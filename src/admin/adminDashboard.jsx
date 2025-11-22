@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import ManageUsers from './manageUsers'
+import ManageUsers from './manageusers.jsx'
 import Products from './products'
 import Chats from './chat'
-import Settings from './seettings'
+import Settings from './seettings.jsx'
 import Profile from './profile'
 import TruckManagement from './truckmanagement'
 import Trucklist from "./TrucksList"
@@ -161,7 +161,7 @@ function AdminDashboard(){
                 />
             )}
 
-            <div className={`${expended ? "adminDashboard__sidebar" : "adminDashboard__sidebar de-expand"} ${sidebarOpen ? 'sidebar-open' : ''}`}>
+            <div className={`${expended ? "padminDashboard__sidebar" : "adminDashboard__sidebar de-expand"} ${sidebarOpen ? 'sidebar-open' : ''}`}>
                 <button className="sidebar-close" onClick={closeSidebar} aria-label="Close menu">
                     <FontAwesomeIcon icon={faTimes} />
                 </button>

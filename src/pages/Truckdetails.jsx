@@ -351,7 +351,6 @@ export function TruckDetailPage() {
                            confirmButtonText: 'Login',
                            confirmButtonColor: "red",
                            showCancelButton: true,
-                           cancelButtonColor: "cancel",
                            cancelButtonColor: "black"
                           }).then((result) => {
                             if (result.isConfirmed) {
