@@ -16,7 +16,7 @@ import {
 import { toast } from 'react-toastify';
 import CryptoJS from 'crypto-js';
 import Swal from 'sweetalert2';
-import '../../styles/userChat.css';
+import '../../styles/userchat.css';
 import { useAuth } from "../../contexts/AuthContext";
 
 function UserChat({ truckdata }) {
