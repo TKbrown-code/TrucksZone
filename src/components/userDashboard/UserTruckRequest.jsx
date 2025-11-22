@@ -16,7 +16,7 @@ import {
   faPlay,
   faTimes
 } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/userTruckRequest.css';
+import '../../styles/UserTruckRequest.css';
 
 function UserTruckRequest() {
   const { user } = useAuth();
