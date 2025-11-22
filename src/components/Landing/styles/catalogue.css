@@ -1,0 +1,243 @@
+.catalogue{
+    background: white !important;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.CatalogueIntro{
+    width: 100%;
+    background: white;
+}
+
+.CatalogueIntroheader{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.CatalogueIntroheader h1{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Bowlby One", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: red;
+    margin-bottom: 0px;
+    transition: 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.CatalogueIntroheader p{
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: rgb(61, 60, 60);
+    margin-bottom: 0px;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.CatalogueIntrocards{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    padding: 20px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.CatalogueIntrocards .CatalogueIntrocard{
+    width: calc(90%/3);
+    position: relative;
+    transition: 0.3s ease;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.CatalogueIntrocards .CatalogueIntrocard:hover{
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+}
+
+.CatalogueIntrocards .CatalogueIntrocard img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.CatalogueIntrocards .CatalogueIntrocard .CatalogueIntrocardcontent{
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.918));
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);   /* Hidden below card */
+    transition: transform 0.4s ease;
+}
+
+
+
+.CatalogueIntrocards .CatalogueIntrocard .CatalogueIntrocardcontent h3{
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: "Bowlby One", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: red;
+    margin-bottom: 0px;
+    transition: 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.CatalogueIntrocards .CatalogueIntrocard .CatalogueIntrocardcontent p{
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 0px;
+    transition: 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+}
+
+.CatalogueIntrocards .CatalogueIntrocard .CatalogueIntrocardcontent button{
+    font-size: 1rem;
+    color: white;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: none;
+    padding: 3px 0;
+    border-radius: 5px;
+    margin-top: 10px;
+    background: none;
+    transition: 0.3s ease;
+    font-family: "Host Grotesk", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-optical-sizing: auto;
+    font-variant: small-caps;
+}
+
+.CatalogueIntrocards .CatalogueIntrocard .CatalogueIntrocardcontent button:hover{
+    color: red;
+    transform: scale(1.05);
+    transition: 0.3s ease;
+    cursor: pointer;
+    text-decoration: underline dotted;
+}
+
+.CatalogueIntrocards .CatalogueIntrocard:hover .CatalogueIntrocardcontent{
+    transform: translateY(-6px);
+}
+
+.CatalogueIntrocards .CatalogueIntrocard:hover .CatalogueIntrocardcontent{
+    transform: translateY(0);
+}
+
+.CatalogueSlider{
+    width: 100%;
+    background: white;
+    padding: 20px 0;
+    height: 400px;
+}
+
+.CatalogueSlidercontainer{
+   width: 90%;
+    margin: auto;
+    overflow-x: auto;  
+    overflow-y: hidden;    
+    white-space: nowrap;   
+    padding: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth; 
+    height: 100%;
+}
+
+.CatalogueSlidercontainer::-webkit-scrollbar {
+    display: none;
+}
+
+.CatalogueSlidercontainer .slideimages{
+    width: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    transition: 0.4s ease;
+    transform: translateY(0);
+}
+
+.CatalogueSlidercontainer .slideimages:hover .slideimagecontent{
+    transform: translateY(0);
+}
+
+.CatalogueSlidercontainer .slideimages img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.CatalogueSlidercontainer .slideimages .slideimagecontent{
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.918));
+    color: white;
+    transform: translateY(100%);   /* Hidden below card */
+    transition: transform 0.4s ease;
+}
+
+.CatalogueSlidercontainer .slideimages .slideimagecontent p{
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 0px;
+    transition: 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .CatalogueIntrocards .CatalogueIntrocard{
+        width: calc(90%/1);
+    }
+    .CatalogueIntroheader{
+        text-align: center;
+    }
+   .CatalogueIntroheader h1{
+    font-size: 1.5rem;
+   }
+   .CatalogueIntroheader p{
+    font-size: 0.7rem;
+   }
+   .CatalogueSlidercontainer .slideimages{
+    width: 100%;
+   }
+   .CatalogueSlidercontainer .slideimages img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+   }
+}
+
+

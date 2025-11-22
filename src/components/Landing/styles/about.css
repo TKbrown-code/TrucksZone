@@ -1,0 +1,129 @@
+/* About Section */
+.about-section {
+  padding: 5rem 0;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.about-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-content h2 {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.about-content p {
+  font-size: 1.25rem;
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.about-content p:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.about-button {
+  background-color: #dc2626;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: translateZ(0);
+  border-radius: 20px;
+}
+
+.about-button:hover {
+  background-color: #b91c1c;
+  transform: scale(1.05) translateZ(0);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: #dc2626;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+}
+
+.stat-icon svg {
+  width: 2rem;
+  height: 2rem;
+  color: white;
+}
+
+.stat-value {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  color: #dc2626;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.stat-label {
+  color: #9ca3af;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .about-content h2 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}

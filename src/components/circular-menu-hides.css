@@ -1,0 +1,4 @@
+/* Keep the chat window visible when opened */
+.chat-window {
+  display: block !important;
+}

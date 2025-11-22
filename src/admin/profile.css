@@ -1,0 +1,206 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile .clock{
+    background: white;
+    margin-right: 20px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.profile-header{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid crimson;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.096);
+    padding: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-header h2{
+    font-size: 3rem;
+}
+
+.profile-header__button{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.profile-header__button button{
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.profile-header__button span{
+    cursor: pointer;
+    transform: scale(1.01);
+    font-size: 2rem;
+    transition: all 0.5s ease-in-out;
+    font-family: var(--header-font-family2);
+    font-weight: var(--header-font-weight);
+}
+
+.profile-body{
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    background-color: crimson;
+    padding: 20px;
+    margin: 20px;
+    align-items: center;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.267);
+    flex-wrap: wrap;
+}
+
+.profile-body__right h3{
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: aliceblue;
+}
+
+.profile-body__right ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-body__right ul li{
+    color: whitesmoke;
+    font-size: 1.2rem;
+    line-height: 1;
+    letter-spacing: 1px;
+    list-style: none;
+}
+
+.profile-body__right ul li strong{
+    color: white;
+}
+
+.notifications{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.notifications h3{
+    font-size: 2rem;
+    color: crimson;
+    text-decoration: underline dotted;
+}
+
+.notifications__list{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.notifications__item{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid crimson;
+    flex: 1;
+    padding-bottom: 20px;
+}
+
+.notifications__item:hover{
+    cursor: pointer;
+    border: 1px solid gray;
+    transform: scale(1.01);
+    transition: all 0.5s ease-in-out;
+}
+
+.notifications__item .itemicon{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid crimson;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+.notifications__item .itemicon span{
+    font-size: 1.5rem;
+    font-family: var(--header-font-family2);
+    font-weight: var(--header-font-weight);
+}
+
+.notifications__item .itembody{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.messageicon{
+    color: crimson;
+    padding: 5px;
+    background-color: rgb(243, 203, 212);
+    font-size: 1.5rem;
+}
+
+.usersicon{
+    color: green;
+    padding: 5px;
+    background-color: rgb(203, 245, 212);
+    font-size: 1.5rem;
+}
+
+.truckicon{
+    color: gray;
+    padding: 5px;
+    background-color: rgb(226, 227, 228);
+    font-size: 1.5rem;
+}
+
+.profile-body__left{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-body__left--avatar{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 130px;
+    height: 150px;
+    
+}
+
+.profile-body__left--avatar img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid gray;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.403);
+}
+
+@media screen and (max-width: 760px){
+
+}

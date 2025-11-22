@@ -1,0 +1,458 @@
+/* Circular Floating Menu Styles */
+.circular-floating-menu {
+  position: fixed;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.circular-floating-menu.bottom-right {
+  bottom: 30px;
+  right: 100px; /* Move right to make space for back to top */
+}
+
+.circular-floating-menu.bottom-left {
+  bottom: 30px;
+  left: 30px;
+}
+
+.circular-floating-menu.top-right {
+  top: 100px;
+  right: 30px;
+}
+
+.circular-floating-menu.top-left {
+  top: 100px;
+  left: 30px;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e63946, #c1121f);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.menu-toggle:hover::before {
+  left: 100%;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+}
+
+.menu-toggle.active {
+  background: linear-gradient(135deg, #c1121f, #a02522);
+  transform: rotate(45deg);
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+  width: 24px;
+  height: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: all 0.25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+  top: 8px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 16px;
+}
+
+.menu-toggle.active .hamburger span:nth-child(1) {
+  top: 8px;
+  transform: rotate(135deg);
+}
+
+.menu-toggle.active .hamburger span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.menu-toggle.active .hamburger span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-135deg);
+}
+
+/* Menu Items Container */
+.menu-items {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Individual Menu Items */
+.menu-item {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  color: white;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+}
+
+/* Center Item - Back to Top */
+.center-item {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.center-item:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Chat Item - Second Layer */
+.chat-item {
+  background: linear-gradient(135deg, #36d1dc, #5b86e5);
+}
+
+.chat-item:hover {
+  background: linear-gradient(135deg, #5b86e5, #36d1dc);
+  box-shadow: 0 6px 20px rgba(91, 134, 229, 0.4);
+}
+
+/* WhatsApp Item - Third Layer */
+.whatsapp-item {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.whatsapp-item:hover {
+  background: linear-gradient(135deg, #128C7E, #25D366);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Open State - Circular Expansion */
+.menu-items.open .menu-item {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+/* Circular Positioning */
+.menu-items.open .center-item {
+  /* Center item stays in place */
+  animation: centerPulse 2s infinite;
+}
+
+.menu-items.open .chat-item {
+  /* Second layer - positioned in circle */
+  transform: translate(-50%, -50%) translate(0, -80px) scale(1);
+}
+
+.menu-items.open .whatsapp-item {
+  /* Third layer - positioned in circle */
+  transform: translate(-50%, -50%) translate(-70px, -40px) scale(1);
+}
+
+/* Alternative positioning for circular arrangement */
+.menu-items.open .chat-item:nth-child(2) {
+  transform: translate(-50%, -50%) translate(0, -80px) scale(1);
+}
+
+.menu-items.open .whatsapp-item:nth-child(3) {
+  transform: translate(-50%, -50%) translate(-70px, -40px) scale(1);
+}
+
+/* For bottom-right position, adjust angles */
+.circular-floating-menu.bottom-right .menu-items.open .chat-item {
+  transform: translate(-50%, -50%) translate(0, -80px) scale(1);
+}
+
+.circular-floating-menu.bottom-right .menu-items.open .whatsapp-item {
+  transform: translate(-50%, -50%) translate(-70px, -40px) scale(1);
+}
+
+/* For bottom-left position, mirror angles */
+.circular-floating-menu.bottom-left .menu-items.open .chat-item {
+  transform: translate(-50%, -50%) translate(0, -80px) scale(1);
+}
+
+.circular-floating-menu.bottom-left .menu-items.open .whatsapp-item {
+  transform: translate(-50%, -50%) translate(70px, -40px) scale(1);
+}
+
+/* For top-right position, adjust angles */
+.circular-floating-menu.top-right .menu-items.open .chat-item {
+  transform: translate(-50%, -50%) translate(0, 80px) scale(1);
+}
+
+.circular-floating-menu.top-right .menu-items.open .whatsapp-item {
+  transform: translate(-50%, -50%) translate(-70px, 40px) scale(1);
+}
+
+/* For top-left position, mirror angles */
+.circular-floating-menu.top-left .menu-items.open .chat-item {
+  transform: translate(-50%, -50%) translate(0, 80px) scale(1);
+}
+
+.circular-floating-menu.top-left .menu-items.open .whatsapp-item {
+  transform: translate(-50%, -50%) translate(70px, 40px) scale(1);
+}
+
+/* Animations */
+@keyframes centerPulse {
+  0% {
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.6), 0 0 0 10px rgba(102, 126, 234, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  }
+}
+
+/* Tooltip Styles */
+.tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.menu-item:hover .tooltip,
+.menu-toggle:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Tooltip positioning based on menu position */
+.circular-floating-menu.bottom-right .tooltip {
+  bottom: 70px;
+  right: 0;
+  transform: translateX(0);
+}
+
+.circular-floating-menu.bottom-left .tooltip {
+  bottom: 70px;
+  left: 0;
+  transform: translateX(0);
+}
+
+.circular-floating-menu.top-right .tooltip {
+  top: 70px;
+  right: 0;
+  transform: translateX(0);
+}
+
+.circular-floating-menu.top-left .tooltip {
+  top: 70px;
+  left: 0;
+  transform: translateX(0);
+}
+
+/* Tooltip arrows */
+.tooltip::after {
+  content: '';
+  position: absolute;
+  border: 6px solid transparent;
+}
+
+.circular-floating-menu.bottom-right .tooltip::after,
+.circular-floating-menu.bottom-left .tooltip::after {
+  bottom: -10px;
+  border-top-color: rgba(0, 0, 0, 0.8);
+}
+
+.circular-floating-menu.bottom-right .tooltip::after {
+  right: 20px;
+}
+
+.circular-floating-menu.bottom-left .tooltip::after {
+  left: 20px;
+}
+
+.circular-floating-menu.top-right .tooltip::after,
+.circular-floating-menu.top-left .tooltip::after {
+  top: -10px;
+  border-bottom-color: rgba(0, 0, 0, 0.8);
+}
+
+.circular-floating-menu.top-right .tooltip::after {
+  right: 20px;
+}
+
+.circular-floating-menu.top-left .tooltip::after {
+  left: 20px;
+}
+
+/* Visibility Animation */
+.circular-floating-menu {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.circular-floating-menu.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .circular-floating-menu.bottom-right {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .circular-floating-menu.bottom-left {
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .circular-floating-menu.top-right {
+    top: 80px;
+    right: 20px;
+  }
+  
+  .circular-floating-menu.top-left {
+    top: 80px;
+    left: 20px;
+  }
+  
+  .menu-toggle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .menu-item {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+  
+  .tooltip {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  
+  /* Adjust circular spacing for mobile */
+  .menu-items.open .chat-item {
+    transform: translate(-50%, -50%) translate(0, -70px) scale(1);
+  }
+  
+  .menu-items.open .whatsapp-item {
+    transform: translate(-50%, -50%) translate(-60px, -35px) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .circular-floating-menu.bottom-right {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .circular-floating-menu.bottom-left {
+    bottom: 15px;
+    left: 15px;
+  }
+  
+  .menu-toggle {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .menu-item {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .tooltip {
+    display: none; /* Hide tooltip on very small screens */
+  }
+  
+  /* Further adjust for very small screens */
+  .menu-items.open .chat-item {
+    transform: translate(-50%, -50%) translate(0, -60px) scale(1);
+  }
+  
+  .menu-items.open .whatsapp-item {
+    transform: translate(-50%, -50%) translate(-50px, -30px) scale(1);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .tooltip {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+  }
+  
+  .circular-floating-menu.bottom-right .tooltip::after,
+  .circular-floating-menu.bottom-left .tooltip::after {
+    border-top-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .circular-floating-menu.top-right .tooltip::after,
+  .circular-floating-menu.top-left .tooltip::after {
+    border-bottom-color: rgba(255, 255, 255, 0.9);
+  }
+}

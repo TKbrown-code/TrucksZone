@@ -1,0 +1,287 @@
+.fp-container {
+  padding: 2rem 1rem;
+  max-width: 100%;
+  margin: 5rem auto;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+.fp-header{
+ text-align: center;
+  margin-bottom: 4rem;
+}
+
+.fp-header-title{
+  font-size: 3.5rem;
+  line-height: 2.5rem;
+  margin-bottom: 1rem;
+  color: #000;
+  font-weight: 700;
+}
+
+.fp-header-subtitle{
+  font-size: 1.2rem;
+  color: #6b7280;
+}
+
+.fp-trucks-grid {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  margin: auto;
+  place-content: center;
+}
+
+.fp-card {
+  background: white;
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 580px;
+  border: #8f8d8d4f 2px solid;
+  border-radius: 20px;
+}
+
+.fp-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.fp-card-image {
+  flex: 1;
+  min-height: 250px;
+}
+
+.fp-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.fp-card:hover .fp-card-image img {
+  transform: scale(1.05) translateZ(0);
+}
+
+.fp-card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.fp-card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.3;
+}
+
+.fp-card-price {
+  margin: 0.5rem 0rem 0 0 ;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.fp-price {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #dc2626;
+}
+
+.fp-original-price {
+  font-size: 1.2rem;
+  color: #6b7280;
+  text-decoration: line-through;
+}
+
+.fp-final-price {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #f81616;
+}
+
+.fp-card-details{
+  margin: 0.7rem 0 0 0;
+}
+
+.fp-card-details strong{
+  font-weight: 400;
+  color: #f81616;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.fp-card-details p{
+  font-size: 1rem;
+  color: rgb(116, 116, 116);
+}
+
+.fp-card-link {
+  display: inline-block;
+  background: #f81616;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+  align-self: flex-start;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.fp-card-link:hover {
+  background: red;
+}
+
+/* Loading and Error States */
+.fp-card.fp-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: white;
+}
+
+.fp-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #f81616;
+  border-radius: 50%;
+  animation: fp-spin 1s linear infinite;
+}
+
+@keyframes fp-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fp-error-message,
+.fp-no-trucks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: #6b7280;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+}
+
+.fp-view-all-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3.5rem 0;
+}
+
+.fp-view-all{
+  padding: 1.2rem 1.5rem;
+  background: black;
+  color: white;
+  border-radius: 0;
+  font-weight: 400;
+  text-align: center;
+  width: 20%;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+  font-size: 1rem;
+  min-width: 150px;
+}
+
+.fp-view-all:hover{
+  background: red;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fp-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .fp-trucks-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+    gap: 1.5rem;
+  }
+
+  .fp-card {
+    margin: 0;
+  }
+
+  .fp-card-image img {
+    min-height: 200px;
+  }
+
+  .fp-card-content {
+    padding: 1.25rem;
+  }
+
+  .fp-card-title {
+    font-size: 1.3rem;
+  }
+
+  .fp-price,
+  .fp-final-price {
+    font-size: 1.5rem;
+  }
+
+  /* Mobile View All Button */
+  .fp-view-all-container {
+    margin: 2rem 0;
+    padding: 0 1rem;
+  }
+
+  .fp-view-all {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .fp-view-all-container {
+    margin: 1.5rem 0;
+    padding: 0 0.5rem;
+  }
+
+  .fp-view-all {
+    width: 100%;
+    max-width: 250px;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 360px) {
+  .fp-view-all {
+    width: 100%;
+    max-width: 200px;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    min-height: 44px;
+  }
+}

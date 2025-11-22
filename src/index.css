@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Asta+Sans&family=Bowlby+One&family=Dela+Gothic+One&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Momo+Trust+Display&family=Noto+Sans+Syriac:wght@100..900&display=swap');
+
+:root{
+    --bg-color: #ffffff;
+    --bg-color2: #1313137e;
+    --bg-color3: crimson;
+    --bg-color4: #000000;
+    --text-color: #3f3e3e;
+    --text-color1: #ffff;
+    --header-color: #131313;
+    --header-color2: #f34141;
+    --header-color3: #ffff;
+
+    --header-font-size: 2rem;
+    --header-font-weight: 600;
+    --header-font-family: "Bowlby One", sans-serif;
+    --header-font-family2: "Asta Sans", sans-serif;
+    --header-font-family3: "Momo Trust Display", sans-serif;
+    --text-font-size: 1rem;
+    --text-font-weight: 400;
+    --text-font-family: "Host Grotesk", sans-serif;
+    --btn-font-size: 1rem;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body{
+    scrollbar-width: thin;
+    scrollbar-color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: white;
+  }
+
+ 

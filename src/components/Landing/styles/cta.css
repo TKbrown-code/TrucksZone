@@ -1,0 +1,108 @@
+/* CTA Section Styles */
+.cta-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background: linear-gradient(to right, #f81616, #cf0202);
+  color: white;
+}
+
+.cta-container {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.cta-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-bottom: 3rem;
+  color: #fecaca;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta-button {
+  background-color: #000;
+  border-radius: 20px;
+  color: white;
+  padding: 1rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.cta-button:hover {
+  background-color: #111;
+  transform: scale(1.05);
+}
+
+.cta-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.cta-arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-button:hover .cta-arrow {
+  transform: translateX(0.25rem);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .cta-button-container {
+    flex-direction: row;
+  }
+  
+  .cta-title {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+  
+  .cta-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cta-container {
+  animation: fadeIn 0.6s ease-out forwards;
+}

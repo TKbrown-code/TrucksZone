@@ -1,0 +1,125 @@
+/* Combined Notifications Card Styles */
+.notifications__item .itembody {
+  padding: 0.75rem;
+}
+
+/* Unified notification item styling for all types */
+.notification-item,
+.truck-request-item {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.notification-item:hover,
+.truck-request-item:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.notification-item:last-child,
+.truck-request-item:last-child {
+  margin-bottom: 0;
+}
+
+.notification-item p,
+.truck-request-item p {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.notification-item p:last-child,
+.truck-request-item p:last-child {
+  margin-bottom: 0;
+}
+
+.notification-item small,
+.truck-request-item small {
+  color: #6b7280;
+  font-size: 0.75rem;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* View All Button Styling */
+.view-all-btn {
+  background: transparent;
+  color: #ef4444;
+  border: none;
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 0.75rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: underline;
+  text-decoration-color: #ef4444;
+}
+
+.view-all-btn:hover {
+  color: #dc2626;
+  text-decoration-color: #dc2626;
+  background: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+.view-all-btn:active {
+  color: #b91c1c;
+  text-decoration-color: #b91c1c;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Footer styling for view all button */
+.view-all-footer {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  text-align: center;
+}
+
+/* Dashboard icon styling */
+.dashboardicon {
+  color: #3b82f6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .notifications__item .itembody {
+    padding: 0.5rem;
+  }
+  
+  .notification-item,
+  .truck-request-item {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .notification-item p,
+  .truck-request-item p {
+    font-size: 0.85rem;
+  }
+  
+  .notification-item small,
+  .truck-request-item small {
+    font-size: 0.7rem;
+  }
+  
+  .view-all-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}

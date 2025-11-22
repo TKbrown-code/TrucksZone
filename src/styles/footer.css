@@ -1,0 +1,259 @@
+/* Footer Styles */
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.footer-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Company Info */
+.company-info {
+  margin-bottom: 1.5rem;
+  width: 30%;
+}
+
+.company-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon img{
+  width: 100%;
+  height: 100%;
+}
+
+.logo-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.company-name {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.company-description {
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-grow: 1;
+}
+
+.social-link {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+  background-color: #1f2937;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.social-link:active {
+  transform: translateY(0);
+}
+
+.social-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover svg {
+  transform: scale(1.1);
+}
+
+/* Section Headers */
+.section-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Quick Links */
+.quick-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quick-link {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 0.25rem 0;
+}
+
+.quick-link:hover {
+  color: #dc2626;
+  text-decoration: none;
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-item {
+  display: flex;
+  gap: 0.75rem;
+  color: #9ca3af;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #dc2626;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-label {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin: 0;
+}
+
+.contact-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #dc2626;
+  text-decoration: none;
+}
+
+.contact-text {
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+/* Bottom Bar */
+.bottom-bar {
+  border-top: 1px solid #1f2937;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copyright {
+  color: #9ca3af;
+  text-align: center;
+}
+
+.legal-links {
+  display: flex;
+  gap: 1.5rem;
+  color: #9ca3af;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.legal-link {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.legal-link:hover {
+  color: #dc2626;
+  text-decoration: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .footer-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .company-info {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    flex: 1;
+  }
+
+  .bottom-bar {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .copyright {
+    text-align: left;
+    margin-bottom: 0;
+  }
+  
+  .legal-links {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}

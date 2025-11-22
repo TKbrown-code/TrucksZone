@@ -1,0 +1,216 @@
+.settings-container {
+  padding: 20px 10px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.settings-header {
+  margin-bottom: 30px;
+}
+
+.settings-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.settings-tabs {
+  display: flex;
+  border-bottom: 2px solid #e9ecef;
+  margin-bottom: 30px;
+}
+  
+.tab-button {
+  background: none;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6c757d;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  color: crimson;
+}
+
+.tab-button.active {
+  color: crimson;
+  border-bottom-color: crimson;
+}
+
+.settings-content {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 30px;
+}
+
+.settings-section h3 {
+  margin: 0 0 25px 0;
+  color: #333;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.settings-form {
+  max-width: 500px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border:none  !important;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.034);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.form-group input:disabled,
+.form-group textarea:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+  border-color: #dee2e6;
+  opacity: 0.7;
+}
+
+.form-group input:disabled:focus,
+.form-group textarea:disabled:focus {
+  border-color: #dee2e6;
+  box-shadow: none;
+}
+
+.form-group input:disabled::placeholder,
+.form-group textarea:disabled::placeholder {
+  color: #adb5bd;
+}
+
+.btn-save {
+  background: linear-gradient(135deg, crimson 0%, red 100%);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-save:hover:not(:disabled) {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.btn-save:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-save:active {
+  transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .settings-container {
+    padding: 15px;
+  }
+
+  .settings-header h2 {
+    font-size: 24px;
+  }
+
+  .settings-tabs {
+    flex-direction: column;
+    border-bottom: none;
+    border-right: 2px solid #e9ecef;
+  }
+
+  .tab-button {
+    border-bottom: none;
+    border-right: 3px solid transparent;
+    text-align: left;
+  }
+
+  .tab-button.active {
+    border-bottom: none;
+    border-right-color: #007bff;
+  }
+
+  .settings-content {
+    padding: 20px;
+  }
+
+  .settings-section h3 {
+    font-size: 20px;
+  }
+
+  .settings-form {
+    max-width: 100%;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 14px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .btn-save {
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-container {
+    padding: 10px;
+  }
+
+  .settings-content {
+    padding: 15px;
+  }
+
+  .settings-section h3 {
+    font-size: 18px;
+  }
+
+  .tab-button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}

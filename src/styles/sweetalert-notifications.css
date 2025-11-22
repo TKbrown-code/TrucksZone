@@ -1,0 +1,91 @@
+/* SweetAlert2 Message Notifications */
+.message-notification-toast {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.message-notification-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+  margin-bottom: 8px !important;
+}
+
+/* Custom SweetAlert2 toast animations */
+.swal2-toast {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)) !important;
+}
+
+.swal2-toast.swal2-show {
+  animation: slideInRight 0.3s ease-out !important;
+}
+
+.swal2-toast.swal2-hide {
+  animation: slideOutRight 0.3s ease-in !important;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Progress bar styling */
+.swal2-timer-progress-bar {
+  background: linear-gradient(90deg, #e63946, #c1121f) !important;
+  height: 3px !important;
+}
+
+/* Icon styling for message notifications */
+.swal2-icon.swal2-info {
+  border-color: #e63946 !important;
+  color: #e63946 !important;
+}
+
+.swal2-icon.swal2-info .swal2-icon-content {
+  color: #e63946 !important;
+}
+
+/* Icon styling for signup notifications */
+.swal2-icon.swal2-success {
+  border-color: #10b981 !important;
+  color: #10b981 !important;
+}
+
+.swal2-icon.swal2-success .swal2-icon-content {
+  color: #10b981 !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .message-notification-toast {
+    width: 90vw !important;
+    max-width: 350px !important;
+  }
+  
+  .message-notification-title {
+    font-size: 13px !important;
+  }
+  
+  .swal2-toast {
+    margin: 10px !important;
+  }
+}

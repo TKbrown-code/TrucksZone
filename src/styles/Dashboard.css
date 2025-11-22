@@ -1,0 +1,186 @@
+.userDashboard{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.userDashboardcontainer{
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+.mobilenav{
+    display: none;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: black;
+    color: white;
+    width: 250px;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+aside .asideupper{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+aside .asideheader{
+    height: 100px;
+    background: crimson;
+    text-align: center;
+    place-content: center;
+}
+
+aside .asidebuttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+aside .asidebuttons button,
+aside .asidedowner button{
+    padding: 15px;
+    font-size: 1.2rem;
+    text-align: left;
+    background: none;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+}
+
+aside .asidebuttons button:hover,
+aside .asidedowner button:hover{
+    color: lightgreen;
+}
+
+aside .asidebuttons button.active{
+    color: rgb(245, 133, 155);
+}
+
+aside .asidedowner{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+aside .asidedowner span{
+    padding: 0 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+aside .asidedowner span:hover{
+    text-decoration: underline lightgreen dotted;
+    color: lightgreen;
+    transform: scale(1.01);
+    transition: all 0.3s ease-in-out;
+}
+
+aside .asidedowner button{
+    background: white;
+    color: black;
+    font-weight: 600;
+}
+
+.aside-mobile-dashoard{
+    display: none;
+}
+
+main{
+    height: 100vh;
+    overflow: auto;
+    scrollbar-width: thin;
+    margin-left: 250px;
+    width: 100%;
+}
+
+@media screen and (max-width: 760px){
+    .aside-mobile-dashoard{
+    display: flex;
+    position: absolute;
+    z-index: 1000;
+}
+    aside{
+        display: none;
+    }
+
+    .asideheader{
+        text-align: left !important;
+        padding: 0 15px;
+    }
+
+    .asideheader div{
+        display: flex;
+        justify-content: space-between;
+    }
+
+     .asideheader div button{
+        font-size: 1.2rem;
+        background: black;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border-radius: 50%;
+        color: white;
+     }
+
+    .mobilenav{
+        display: block;
+        padding: 5px 10px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.3rem;
+        position: sticky;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.075);
+        background: rgb(255, 255, 255);
+    }
+
+    .mobilenav h2{
+        color: red;
+        padding: 3px;
+        border-radius: 20px;
+        font-size: 1.5rem;
+    }
+
+    .mobilenav button{
+        margin-left: 10px;
+        font-size: 1.5rem;
+        border: none;
+        background: none;
+        color: crimson;
+        border: solid 2px crimson;
+        border-radius: 5px;
+    }
+    main{
+        margin: 2px 0;
+    }
+    .profile-image-container img{
+        width: 50%;
+        height: 90%;
+    }
+    .profile-header {
+        border: none !important;
+        box-shadow: none !important;
+        width: 100% !important;
+        text-align: left !important;
+        padding: 0 !important;
+        margin: 5px 0 !important;
+        display: none !important;
+    }
+    .profile-header h2{
+        font-size: 2rem !important;
+    }
+    .profile-header .icon{
+        display: none;
+    }
+}
