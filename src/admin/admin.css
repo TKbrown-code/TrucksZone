@@ -57,7 +57,7 @@
     }
 }
 
-.padminDashboard__sidebar {
+.adminDashboard__sidebar {
     width: 235px;
     min-height: inherit;
     background-color: #000000 !important;
@@ -70,7 +70,7 @@
     overflow-y: auto;
 }
 
-.padminDashboard__sidebar .de-expand {
+.adminDashboard__sidebar .de-expand {
     width: 40px;
 }
 

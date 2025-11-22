@@ -161,7 +161,7 @@ function AdminDashboard(){
                 />
             )}
 
-            <div className={`${expended ? "padminDashboard__sidebar" : "adminDashboard__sidebar de-expand"} ${sidebarOpen ? 'sidebar-open' : ''}`}>
+            <div className={`${expended ? "adminDashboard__sidebar" : "adminDashboard__sidebar de-expand"} ${sidebarOpen ? 'sidebar-open' : ''}`}>
                 <button className="sidebar-close" onClick={closeSidebar} aria-label="Close menu">
                     <FontAwesomeIcon icon={faTimes} />
                 </button>
