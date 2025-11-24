@@ -46,9 +46,9 @@ header .headercontainer .headeroverlay .headercontentleft{
 
 header .headercontainer .headeroverlay .headercontentright{
     width: 35%;
-    height: 100%;
+    height: inherit;
     display: flex;
-    align-items: last center;
+    align-items: center;
     justify-content: center;
 }
 

@@ -1,7 +1,7 @@
 /* Why Choose Us Section */
 .why-choose-us {
-  padding-top: 15rem;
-  padding-bottom: 15rem;
+  padding-top: 13rem;
+  padding-bottom: 13rem;
   background-color: #f3f4f6; /* bg-gray-100 */
 }
 
@@ -125,8 +125,26 @@
   .why-choose-us__subtitle {
     font-size: 1rem;
   }
-  
+
 }
+
+@media (max-width: 366px) {
+  .why-choose-us__title {
+    font-size: 1.5rem;
+    line-height: 0.3rem;
+  }
+  .why-choose-us__subtitle {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 315px){
+   .why-choose-us__title {
+    font-size: 1rem;
+    line-height: 0.2rem;
+  }
+}
+
 @media (min-width: 1024px) { /* lg: */
   .why-choose-us__grid {
     grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */

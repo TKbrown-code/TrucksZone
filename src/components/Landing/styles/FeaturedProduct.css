@@ -288,4 +288,8 @@
     font-size: 0.9rem;
     min-height: 44px;
   }
+   .fp-header-title{
+    font-size: 1.5rem;
+    line-height: 1rem;
+  }
 }
