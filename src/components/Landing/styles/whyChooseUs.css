@@ -1,9 +1,8 @@
 /* Why Choose Us Section */
 .why-choose-us {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 15rem;
+  padding-bottom: 15rem;
   background-color: #f3f4f6; /* bg-gray-100 */
-  margin: 3rem 0;
 }
 
 .why-choose-us__container {
@@ -97,6 +96,37 @@
   }
 }
 
+@media screen and (max-width: 640px) {
+  .why-choose-us {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  .why-choose-us__feature-card {
+    padding: 1.5rem;
+  }
+  .why-choose-us__icon-container {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .why-choose-us__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  .why-choose-us__feature-title{
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .why-choose-us__title {
+    font-size: 1.8rem;
+    line-height: 0.5rem;
+  }
+  .why-choose-us__subtitle {
+    font-size: 1rem;
+  }
+  
+}
 @media (min-width: 1024px) { /* lg: */
   .why-choose-us__grid {
     grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */

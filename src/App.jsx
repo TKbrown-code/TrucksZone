@@ -98,7 +98,6 @@ export default function App() {
               } />
               <Route path="/trucks/:id" element={
                 <>
-                  <Navbar />
                   <div data-aos="fade-up">
                     <TruckDetails />
                   </div>

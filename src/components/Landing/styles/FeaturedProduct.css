@@ -42,7 +42,7 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 580px;
+  height: 510px;
   border: #8f8d8d4f 2px solid;
   border-radius: 20px;
 }
@@ -273,6 +273,10 @@
     padding: 0.9rem 1.5rem;
     font-size: 1rem;
     min-height: 48px;
+  }
+  .fp-header-title{
+    font-size: 2.5rem;
+    line-height: 2rem;
   }
 }
 

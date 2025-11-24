@@ -1,6 +1,6 @@
 header{
     width: 100% !important;
-    height: 100vh;
+    height: 91vh;
     background: white;
 }
 
@@ -20,7 +20,7 @@ header .headercontainer .headeroverlay{
     top: 0;
     width: 100% !important;
     height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.863), rgba(0, 0, 0, 0.253)) ;
+   background: linear-gradient(to right, rgba(0, 0, 0, 0.664), rgba(0, 0, 0, 0.253)) ;
     z-index: 1;
 }
 
@@ -46,6 +46,25 @@ header .headercontainer .headeroverlay .headercontentleft{
 
 header .headercontainer .headeroverlay .headercontentright{
     width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: last center;
+    justify-content: center;
+}
+
+header .headercontainer .headeroverlay img{
+    width: 100%;
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
+    animation: bounceIn 3s infinite;
+}
+
+@keyframes bounceIn {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 header .headercontainer .headeroverlay .headercontent h1{
@@ -142,8 +161,6 @@ header .headercontainer .headerimage img{
     header .headercontainer .headeroverlay .headercontent {
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        text-align: center;
         padding: 0 20px;
         width: 100%;
         height: 100%;
@@ -152,8 +169,6 @@ header .headercontainer .headerimage img{
     header .headercontainer .headeroverlay .headercontentleft {
         width: 100%;
         height: auto;
-        justify-content: center;
-        align-items: center;
     }
     
     header .headercontainer .headeroverlay .headercontentright {
@@ -189,7 +204,7 @@ header .headercontainer .headerimage img{
 
 @media (max-width: 480px) {
     header {
-        height: 100vh;
+        height: 90vh;
     }
     
     header .headercontainer .headeroverlay {
@@ -203,7 +218,6 @@ header .headercontainer .headerimage img{
     
     header .headercontainer .headeroverlay .headercontentleft {
         justify-content: center;
-        align-items: center;
     }
     
     header .headercontainer .headeroverlay .headercontentright {
@@ -211,17 +225,17 @@ header .headercontainer .headerimage img{
     }
     
     header .headercontainer .headeroverlay .headercontent h1 {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
         letter-spacing: 1px;
     }
     
     header .headercontainer .headeroverlay .headercontent h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         letter-spacing: 1px;
     }
     
     header .headercontainer .headeroverlay .headercontent p {
-        font-size: 0.9rem;
+        font-size: 0.6rem;
         line-height: 1.5;
     }
     
@@ -239,12 +253,10 @@ header .headercontainer .headerimage img{
 @media (max-width: 360px) {
     header .headercontainer .headeroverlay .headercontent h1 {
         font-size: 2rem;
-        text-align: center;
     }
     
     header .headercontainer .headeroverlay .headercontent h2 {
         font-size: 1.1rem;
-        text-align: center;
     }
     
     header .headercontainer .headeroverlay .headercontent p {
@@ -261,7 +273,7 @@ header .headercontainer .headerimage img{
 @media (max-width: 768px) and (orientation: landscape) {
     header {
         height: auto;
-        min-height: 100vh;
+        min-height: 80vh;
     }
     
     header .headercontainer .headeroverlay .headercontent {

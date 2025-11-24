@@ -1,6 +1,7 @@
 .ratingcontainer{
     width: 100%;
-    background: rgb(136, 135, 135);
+    background: rgb(255, 255, 255);
+    border-bottom: rgba(128, 128, 128, 0.137) 1px solid;
 }
 
 .ratingcontainer .rating{
@@ -40,7 +41,7 @@
 .ratingcontainer .rating .ratingitem p{
     font-size: 0.8rem;
     letter-spacing: 1px;
-    color: #ffffffd7;
+    color: red;
     font-family: "Momo Trust Display", sans-serif;  
     font-optical-sizing: auto;
     font-weight: 600;
@@ -69,5 +70,11 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
+    }
+}
+
+@media  screen and (max-width: 600px) {
+     .ratingcontainer{
+        display: none;
     }
 }
