@@ -298,8 +298,15 @@ button:disabled {
   .profile-image-container {
     width: 120px;
     height: 120px;
+    padding: 0rem;
+    border: none !important;
   }
-  
+
+  .profile-image{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
   .form-grid {
     grid-template-columns: 1fr;
     gap: 1rem;

@@ -184,9 +184,8 @@ export function TruckDetailPage() {
     return (
       <div className="truck-detail-loading">
         <div className="loading-spinner">
-          <div className="spinner"></div>
-          <p>Loading truck details...</p>
         </div>
+        <p>Loading truck details...</p>
       </div>
     );
   }

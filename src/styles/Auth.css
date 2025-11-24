@@ -115,6 +115,7 @@
     background: none;
     outline: none;
     padding: 5px;
+    font-size: 1.1rem;
 }
 
 .formcontainer form .policy,
@@ -186,7 +187,7 @@
     height: 100%;
     position: absolute;
     padding: 10px;
-    background: var(--bg-color2);
+    background: rgb(19, 19, 19);
 }
 
 .formrightdeco .formoverlay .formovalayheader{

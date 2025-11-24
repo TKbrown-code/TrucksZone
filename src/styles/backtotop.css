@@ -90,3 +90,10 @@
     transform: translateY(0);
   }
 }
+
+@media  (max-width: 768px) {
+  .back-to-top {
+    bottom: 0.5rem;
+    right: 1rem;
+  }
+}

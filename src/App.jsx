@@ -125,9 +125,7 @@ export default function App() {
                 path="/TrucksZoneSpecial"
                 element={
                   <RequireAdmin>
-                    <div data-aos="fade-up">
                       <AdminDashboard />
-                    </div>
                   </RequireAdmin>
                 }
               />

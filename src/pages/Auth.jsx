@@ -7,6 +7,7 @@ import { FaApple, FaGooglePlus, FaMicrosoft } from "react-icons/fa";  // ✔ wor
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import Autpic from "../assets/catalogueintro2.jpg"
 
 function Auth(){
  const navigate = useNavigate();
@@ -47,7 +48,7 @@ function Auth(){
                     <div className="loginchoicebtn"><span>{isLogin ? "Don't have an account?" : "Already have an account?"}</span> <RegularBtn text={isLogin ? "Sign Up" : "Sign In"} onClick={() => setLogin(!isLogin)} bg="red"></RegularBtn></div>
                     <div className="backhomebtn" onClick={() => navigate("/")}><span><FontAwesomeIcon icon={faArrowLeft}/> Return Home</span></div>    
                 </div>
-                <img src="https://media.istockphoto.com/id/1465157700/photo/brightly-red-colored-semi-truck-speeding-on-a-two-lane-highway-with-cars-in-background-under.jpg?b=1&s=612x612&w=0&k=20&c=vmUpUfewz7jtLyZWkusTsTo8VSVx70RW75rOkMGv1p4=" alt="" />
+                <img src={Autpic} alt="" />
             </div>
         </div>
         </>

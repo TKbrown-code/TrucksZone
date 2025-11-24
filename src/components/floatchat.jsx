@@ -346,44 +346,6 @@ const handleToolkitClick = (action) => {
           </div>
         </div>
       )}
-
-      {showToolkit && (
-  <div 
-    className="chat-toolkit"
-    style={{
-      position: 'fixed',
-      bottom: '180px',
-      right: '30px',
-      backgroundColor: '#fff',
-      borderRadius: '10px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-      padding: '10px',
-      zIndex: 1000,
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '8px'
-    }}
-  >
-    <button 
-      onClick={() => handleToolkitClick('help')}
-      className="toolkit-button"
-    >
-      <span>🆘</span> Help
-    </button>
-    <button 
-      onClick={() => handleToolkitClick('order')}
-      className="toolkit-button"
-    >
-      <span>📦</span> Order Status
-    </button>
-    <button 
-      onClick={() => handleToolkitClick('info')}
-      className="toolkit-button"
-    >
-      <span>ℹ️</span> More Info
-    </button>
-  </div>
-)}
     </>
   );
 }

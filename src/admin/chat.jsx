@@ -835,7 +835,7 @@ export default function Chat() {
 
             <form onSubmit={sendMessage} className="message-form">
               <div className="message-input-container">
-                <div ref={messageInputRef} contentEditable onInput={handleInput} onCompositionStart={handleCompositionStart} onCompositionEnd={handleCompositionEnd} onPaste={(e) => { e.preventDefault(); const text = e.clipboardData.getData('text/plain'); document.execCommand('insertText', false, text); }} placeholder="Type your message..." className="message-input" suppressContentEditableWarning role="textbox" aria-multiline="true" />
+                <div className="input" ref={messageInputRef} contentEditable onInput={handleInput} onCompositionStart={handleCompositionStart} onCompositionEnd={handleCompositionEnd} onPaste={(e) => { e.preventDefault(); const text = e.clipboardData.getData('text/plain'); document.execCommand('insertText', false, text); }} placeholder="Type your message..." className="message-input" suppressContentEditableWarning role="textbox" aria-multiline="true" />
                 <div className="message-actions">
                   <input type="file" ref={fileInputRef} onChange={handleFileSelect} accept="image/*,audio/*,.pdf,.doc,.docx,.txt" style={{ display: 'none' }} />
                   <button type="button" onClick={() => fileInputRef.current?.click()} className="action-btn file-btn" title="Attach file"><FontAwesomeIcon icon={faPaperclip} /></button>

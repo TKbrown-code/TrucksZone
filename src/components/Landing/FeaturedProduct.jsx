@@ -3,6 +3,8 @@ import { supabase } from '../../lib/supabase';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import './styles/FeaturedProduct.css';
+import aos from "aos";
+import "aos/dist/aos.css";
 
 const FeaturedProduct = () => {
   const [trucks, setTrucks] = useState([]);
@@ -124,15 +126,15 @@ const FeaturedProduct = () => {
   return (
     <div className="fp-container">
       <div className="fp-header">
-        <h2 className="fp-header-title">Featured Trucks</h2>
-        <p className="fp-header-subtitle">Explore our featured trucks and find the perfect truck for your needs.</p>
+        <h2 className="fp-header-title" data-aos="float-up" data-aos-duration="1500">Featured Trucks</h2>
+        <p className="fp-header-subtitle" data-aos="float-up" data-aos-duration="2000">Explore our featured trucks and find the perfect truck for your needs.</p>
       </div>
       <div className="fp-trucks-grid">
         {trucks.map(truck => {
           const primaryImage = truck.truck_images?.find(img => img.is_primary) || truck.truck_images?.[0];
 
           return (
-            <div key={truck.id} className="fp-card">
+            <div key={truck.id} className="fp-card" data-aos="float-up" data-aos-duration="2500">
               {primaryImage && (
                 <div className="fp-card-image">
                   <img src={primaryImage.image_url} alt={truck.title} />

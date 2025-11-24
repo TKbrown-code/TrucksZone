@@ -7,6 +7,7 @@ import { faBars, faTimes, faHome, faInfoCircle, faEnvelope, faUser, faCog, faSig
 import Logo from "../assets/Logo.jpg";
 import "../styles/navbar.css";
 
+
 function Navbar() {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
@@ -64,10 +65,10 @@ function Navbar() {
 
                     <div className="linksContainer">
                         <ul className={isMobileMenuOpen ? 'mobile-menu-open' : ''}>
-                            <li><Link to="/" onClick={closeMobileMenu}><FontAwesomeIcon icon={faHome} className="nav-icon" /> Home</Link></li>
-                            <li><Link to="/allTrucks" onClick={closeMobileMenu}><FontAwesomeIcon icon={faTruckFast} className="nav-icon" /> Trucks</Link></li>
-                            <li><Link to="/about" onClick={closeMobileMenu}><FontAwesomeIcon icon={faInfoCircle} className="nav-icon" /> About</Link></li>
-                            <li><Link to="/contact" onClick={closeMobileMenu}><FontAwesomeIcon icon={faEnvelope} className="nav-icon" /> Contact</Link></li>
+                            <li><Link to="/" onClick={closeMobileMenu}> Home</Link></li>
+                            <li><Link to="/allTrucks" onClick={closeMobileMenu}> Trucks</Link></li>
+                            <li><Link to="/about" onClick={closeMobileMenu}> About</Link></li>
+                            <li><Link to="/contact" onClick={closeMobileMenu}> Contact</Link></li>
                             {user ? (
                                 <>
                                     <div className="usermenuedropdown">

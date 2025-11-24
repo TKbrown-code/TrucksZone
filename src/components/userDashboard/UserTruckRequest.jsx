@@ -17,6 +17,7 @@ import {
   faTimes
 } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/UserTruckRequest.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function UserTruckRequest() {
   const { user } = useAuth();
@@ -29,6 +30,9 @@ function UserTruckRequest() {
   const [videos, setVideos] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showLightbox, setShowLightbox] = useState(false);
+  const [isMobileListExpanded, setIsMobileListExpanded] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (user) {
@@ -180,39 +184,52 @@ const handleRequestSelect = async (request) => {
     <div className="truck-request-container">
       <h2 className="truck-request-title">
         <FontAwesomeIcon icon={faTruck} className="title-icon" />
-        My Truck Requests
+        My Truck Wishlist
       </h2>
       
       <div className="truck-request-layout">
-        <div className="request-list">
-          {requests.length === 0 ? (
-            <div className="no-requests">
-              <p>You haven't made any truck requests yet.</p>
-            </div>
-          ) : (
-            requests.map((request) => (
-              <div 
-                key={request.id}
-                className={`request-card ${selectedRequest?.id === request.id ? 'active' : ''}`}
-                onClick={() => handleRequestSelect(request)}
-              >
-                <div className="request-card-header">
-                  <span className="request-id">Request #{request.id}</span>
-                  <span className={`status-badge ${request.trucks?.availability?.toLowerCase()}`}>
-                    {request.trucks?.availability || 'N/A'}
-                  </span>
-                </div>
-                <div className="request-truck-info">
-                  <h4>{request.trucks?.title || 'Truck'}</h4>
-                  <p>{request.trucks?.brand} {request.trucks?.model} • {request.trucks?.year}</p>
-                </div>
-                <div className="request-date">
-                  <FontAwesomeIcon icon={faCalendarAlt} className="icon" />
-                  {formatDate(request.created_at)}
-                </div>
+        <div className="ut-request-list">
+          <button 
+            className="mobile-toggle"
+            onClick={() => setIsMobileListExpanded(!isMobileListExpanded)}
+          >
+            <span>My Requests ({requests.length})</span>
+            <FontAwesomeIcon icon={isMobileListExpanded ? faChevronLeft : faChevronRight} />
+          </button>
+          
+          <div className={`request-list ${isMobileListExpanded ? 'expanded' : 'collapsed'}`}>
+            {requests.length === 0 ? (
+              <div className="no-requests">
+                <p>You haven't made any truck requests yet.</p>
               </div>
-            ))
-          )}
+            ) : (
+              requests.map((request) => (
+                <div 
+                  key={request.id}
+                  className={`request-card ${selectedRequest?.id === request.id ? 'active' : ''}`}
+                  onClick={() => {
+                    handleRequestSelect(request);
+                    setIsMobileListExpanded(false); // Close list on mobile after selection
+                  }}
+                >
+                  <div className="request-card-header">
+                    <span className="request-id">Request #{request.id}</span>
+                    <span className={`status-badge ${request.trucks?.availability?.toLowerCase()}`}>
+                      {request.trucks?.availability || 'N/A'}
+                    </span>
+                  </div>
+                  <div className="request-truck-info">
+                    <h4>{request.trucks?.title || 'Truck'}</h4>
+                    <p>{request.trucks?.brand} {request.trucks?.model} • {request.trucks?.year}</p>
+                  </div>
+                  <div className="request-date">
+                    <FontAwesomeIcon icon={faCalendarAlt} className="icon" />
+                    {formatDate(request.created_at)}
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
         </div>
         
         <div className="request-details">
@@ -236,13 +253,10 @@ const handleRequestSelect = async (request) => {
                           <div className="media-overlay">
                             <span>Click to view fullscreen</span>
                           </div>
-                        </div>
-                      )}
-                      
-                      {images.length > 1 && (
-                        <div className="gallery-navigation">
+                          {images.length > 1 && (
+                        <div className="carousel-navigation">
                           <button 
-                            className="nav-arrow left" 
+                            className="carousel-btn carousel-btn-prev" 
                             onClick={(e) => {
                               e.stopPropagation();
                               setCurrentImageIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
@@ -250,11 +264,11 @@ const handleRequestSelect = async (request) => {
                           >
                             <FontAwesomeIcon icon={faChevronLeft} />
                           </button>
-                          <div className="image-counter">
+                          <div className="carousel-counter">
                             {currentImageIndex + 1} / {images.length}
                           </div>
                           <button 
-                            className="nav-arrow right"
+                            className="carousel-btn carousel-btn-next"
                             onClick={(e) => {
                               e.stopPropagation();
                               setCurrentImageIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
@@ -262,6 +276,8 @@ const handleRequestSelect = async (request) => {
                           >
                             <FontAwesomeIcon icon={faChevronRight} />
                           </button>
+                        </div>
+                      )}
                         </div>
                       )}
                     </div>
@@ -342,8 +358,9 @@ const handleRequestSelect = async (request) => {
                         alt={`Fullscreen ${currentImageIndex + 1} of ${images.length}`}
                       />
                       {images.length > 1 && (
-                        <div className="lightbox-navigation">
+                        <div className="lightbox-carousel-navigation">
                           <button 
+                            className="lightbox-carousel-btn lightbox-carousel-btn-prev"
                             onClick={(e) => {
                               e.stopPropagation();
                               setCurrentImageIndex(prev => (prev > 0 ? prev - 1 : images.length - 1));
@@ -351,10 +368,11 @@ const handleRequestSelect = async (request) => {
                           >
                             <FontAwesomeIcon icon={faChevronLeft} size="2x" />
                           </button>
-                          <span className="lightbox-counter">
+                          <span className="lightbox-carousel-counter">
                             {currentImageIndex + 1} / {images.length}
                           </span>
                           <button 
+                            className="lightbox-carousel-btn lightbox-carousel-btn-next"
                             onClick={(e) => {
                               e.stopPropagation();
                               setCurrentImageIndex(prev => (prev < images.length - 1 ? prev + 1 : 0));
@@ -362,7 +380,7 @@ const handleRequestSelect = async (request) => {
                           >
                             <FontAwesomeIcon icon={faChevronRight} size="2x" />
                           </button>
-                        </div>
+                        </div>  
                       )}
                     </div>
                   </div>
@@ -410,7 +428,7 @@ const handleRequestSelect = async (request) => {
               )}
               
               <div className="request-actions">
-                <button className="btn primary">
+                <button className="btn primary" onClick={() => navigate(`/trucks/${truckDetails?.id}`)}>
                   <FontAwesomeIcon icon={faInfoCircle} /> View Full Details
                 </button>
                 <button className="btn secondary">

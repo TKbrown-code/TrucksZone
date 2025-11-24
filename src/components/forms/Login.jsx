@@ -99,7 +99,7 @@ export default function Login({ isLogin }) {
 
         <div className="policy">
           <div className="policies">
-            <input type="checkbox" name="checkbox" required/>
+            <input type="checkbox" name="checkbox"/>
             <span style={{color: "black"}}>Remember me</span>
           </div>
           <div className="passwordforgotten">

@@ -60,17 +60,17 @@
 .adminDashboard__sidebar {
     width: 235px;
     min-height: inherit;
-    background-color: #000000 !important;
-    color: #fff !important;
-    position: fixed !important;
-    left: 0 !important;
-    top: 0 !important;
+    background-color: #000000;
+    color: #fff ;
+    position: fixed ;
+    left: 0 ;
+    top: 0 ;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
 }
 
-.adminDashboard__sidebar .de-expand {
+.adminDashboard__sidebar.de-expand {
     width: 40px;
 }
 
@@ -107,7 +107,7 @@
 
 .adminDashboard__main {
     margin-left: 240px;
-    width: calc(100% - 230px);
+    width: calc(100% - 240px);
     min-height: 100vh;
     background-color: #fff;
     transition: all 0.3s ease;
@@ -258,7 +258,7 @@
 @media screen and (max-width: 1200px) {
     .adminDashboard__sidebar {
         width: 220px;
-        position: fixed !important;
+        position: fixed;
     }
     
     .adminDashboard__main {
@@ -294,6 +294,9 @@
         justify-content: center;
     }
     
+    .adminDashboard{
+        flex-direction: column;
+    }
     .adminDashboard__sidebar {
         transform: translateX(-100%);
         width: 280px;
@@ -341,7 +344,7 @@
     }
     .adminDashboard__sidebar {
         width: 85%;
-        max-width: 300px;
+        width: 300px;
     }
     
     .hamburger-menu {

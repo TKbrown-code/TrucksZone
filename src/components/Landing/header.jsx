@@ -38,7 +38,7 @@ function Header() {
                     <button title="Get Started" onClick={() => navigate("/allTrucks")} type="button" data-aos="fade-up" data-aos-duration="2000">Get Started</button>
                 </div>
                 <div className="headercontentright" data-aos="fade-left" data-aos-duration="1500">
-                    <img src={rightimg} alt="headerimage" />
+                    
                 </div>
             </div>
           </div>

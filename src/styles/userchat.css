@@ -729,6 +729,10 @@
     padding: 15px 20px;
   }
 
+  .userchat-input-form input{
+    font-size: 15px !important;
+  }
+
   .userchat-input-form input {
     padding: 12px 16px;
     font-size: 14px;

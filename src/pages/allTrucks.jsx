@@ -78,7 +78,13 @@ export function AllTrucksPage() {
   };
 
   if (isLoading) {
-    return <div className="loading">Loading trucks...</div>;
+    return (
+      <div className="truck-detail-loading">
+        <div className="loading-spinner">
+        </div>
+        <p>Loading trucks....</p>
+      </div>
+    );
   }
 
   if (error) {
