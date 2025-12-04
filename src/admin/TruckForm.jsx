@@ -164,8 +164,7 @@ const TruckForm = ({ truckId, onSave, onTruckSaved, isEdit, selectedCategory }) 
     }
   };
 
-  const handleNewCategorySubmit = async (e) => {
-    e.preventDefault();
+  const handleNewCategorySubmit = async () => {
     if (newCategoryName.trim()) {
       await createCategory(newCategoryName.trim());
     }
@@ -398,7 +397,7 @@ const TruckForm = ({ truckId, onSave, onTruckSaved, isEdit, selectedCategory }) 
             <div className="form-row">
               <div className="form-group">
                 <label>New Category Name</label>
-                <form onSubmit={handleNewCategorySubmit} className="new-category-form">
+                <div className="new-category-form">
                   <input
                     type="text"
                     value={newCategoryName}
@@ -409,7 +408,8 @@ const TruckForm = ({ truckId, onSave, onTruckSaved, isEdit, selectedCategory }) 
                     required
                   />
                   <button 
-                    type="submit" 
+                    type="button"
+                    onClick={handleNewCategorySubmit}
                     className="btn-create-category"
                     disabled={categoryLoading || !newCategoryName.trim()}
                   >
@@ -425,7 +425,7 @@ const TruckForm = ({ truckId, onSave, onTruckSaved, isEdit, selectedCategory }) 
                   >
                     Cancel
                   </button>
-                </form>
+                </div>
               </div>
             </div>
           )}

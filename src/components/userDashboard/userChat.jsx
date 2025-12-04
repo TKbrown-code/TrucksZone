@@ -108,6 +108,12 @@ function UserChat({ truckdata }) {
   useEffect(() => {
     if (!currentUser?.id || !admin?.user_id) return;
 
+    // Clean up previous channel if exists
+    if (realtimeChannelRef.current) {
+      supabase.removeChannel(realtimeChannelRef.current);
+      realtimeChannelRef.current = null;
+    }
+
     const channelName = `user_chat_${currentUser.id}`;
     const channel = supabase
       .channel(channelName)
@@ -116,25 +122,75 @@ function UserChat({ truckdata }) {
         {
           event: 'INSERT',
           schema: 'public',
-          table: 'chat_messages',
-          filter: `sender_id=eq.${admin.user_id},receiver_id=eq.${currentUser.id}`
+          table: 'chat_messages'
         },
         async (payload) => {
           const newMsg = payload.new;
-          if (newMsg.sender_id === admin.user_id) {
-            // Decrypt the message
-            const key = getEncryptionKey(newMsg.sender_id, newMsg.receiver_id);
-            const decryptedContent = decryptMessage(newMsg.message, key);
-            const media = await fetchMediaForMessage(newMsg.id);
 
-            setMessages(prev => [...prev, { ...newMsg, content: decryptedContent, chat_media: media }]);
-            scrollToBottom();
+          // Check if message belongs to this conversation (user-admin or admin-user)
+          const belongsToConversation = (
+            (newMsg.sender_id === currentUser.id && newMsg.receiver_id === admin.user_id) ||
+            (newMsg.sender_id === admin.user_id && newMsg.receiver_id === currentUser.id)
+          );
+
+          if (belongsToConversation) {
+            try {
+              // Decrypt the message
+              const key = getEncryptionKey(newMsg.sender_id, newMsg.receiver_id);
+              const decryptedContent = newMsg.message ? decryptMessage(newMsg.message, key) : '';
+              const media = await fetchMediaForMessage(newMsg.id);
+
+              setMessages(prev => [...prev, { ...newMsg, content: decryptedContent, chat_media: media }]);
+              scrollToBottom();
+            } catch (error) {
+              console.error('Error processing new message:', error);
+            }
+          }
+        }
+      )
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'chat_messages'
+        },
+        async (payload) => {
+          const updatedMsg = payload.new;
+
+          // Check if updated message belongs to this conversation
+          const belongsToConversation = (
+            (updatedMsg.sender_id === currentUser.id && updatedMsg.receiver_id === admin.user_id) ||
+            (updatedMsg.sender_id === admin.user_id && updatedMsg.receiver_id === currentUser.id)
+          );
+
+          if (belongsToConversation) {
+            try {
+              // Decrypt the updated message
+              const key = getEncryptionKey(updatedMsg.sender_id, updatedMsg.receiver_id);
+              const decryptedContent = updatedMsg.message ? decryptMessage(updatedMsg.message, key) : '';
+
+              // Update existing message in state
+              setMessages(prev => prev.map(msg =>
+                msg.id === updatedMsg.id
+                  ? { ...updatedMsg, content: decryptedContent, chat_media: msg.chat_media }
+                  : msg
+              ));
+            } catch (error) {
+              console.error('Error processing updated message:', error);
+            }
           }
         }
       )
       .subscribe(status => {
         if (status === 'SUBSCRIBED') {
-          // Subscription active
+          console.log('Realtime subscription active for user chat');
+        } else if (status === 'CHANNEL_ERROR') {
+          console.error('Realtime subscription error for user chat');
+        } else if (status === 'TIMED_OUT') {
+          console.warn('Realtime subscription timed out for user chat');
+        } else if (status === 'CLOSED') {
+          console.log('Realtime subscription closed for user chat');
         }
       });
 
@@ -143,6 +199,7 @@ function UserChat({ truckdata }) {
     return () => {
       if (realtimeChannelRef.current) {
         supabase.removeChannel(realtimeChannelRef.current);
+        realtimeChannelRef.current = null;
       }
     };
   }, [currentUser?.id, admin?.user_id]);

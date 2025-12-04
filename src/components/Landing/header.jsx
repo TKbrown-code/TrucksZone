@@ -5,7 +5,7 @@ import "./styles/header.css"
 import rightimg from "../../assets/—Pngtree—3d illustration of a gear_20828871.png"
 import aos from "aos";
 import "aos/dist/aos.css";
-
+import Headerimg from "../../assets/header.jpg"
 
 function Header() {
    const navigate = useNavigate();
@@ -31,8 +31,8 @@ function Header() {
           <div className="headeroverlay">
             <div className="headercontent">
                 <div className="headercontentleft" data-aos="fade-right" data-aos-duration="1500">
-                    <h1><span style={{ textDecorationColor:"crimson", textDecorationThickness:"2px"}}>Trucks</span>Zone</h1>
-                    <h2>Discover Powerful Trucks for Every Job</h2>
+                  <h2>TrucksZone</h2>
+                  <h1>Need a Truck? Search no more!, <span style={{color:"red"}}>You are</span> at the right <span style={{color:"red"}}>spot</span>.</h1>                
                     <p>Browse premium trucks with verified details, transparent pricing, <br /> and full mechanical reports. Get the performance you need with confidence.</p>
                     <p></p>
                     <button title="Get Started" onClick={() => navigate("/allTrucks")} type="button" data-aos="fade-up" data-aos-duration="2000">Get Started</button>
@@ -43,7 +43,7 @@ function Header() {
             </div>
           </div>
           <div className="headerimage">
-            <img src="https://images.unsplash.com/photo-1551830820-330a71b99659?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaWNrdXAlMjB0cnVja3xlbnwxfHx8fDE3NjM2MzY1NzR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="headerimage" />
+            <img src={Headerimg} alt="headerimage" />
           </div>
         </div>
       </header>

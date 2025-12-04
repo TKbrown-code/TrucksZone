@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import Profilepic from "../assets/userIconpro.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faHome, faInfoCircle, faEnvelope, faUser, faCog, faSignOutAlt, faTruck, faTruckFast } from '@fortawesome/free-solid-svg-icons';
-import Logo from "../assets/Logo.jpg";
+import Logo from "../assets/Logo.png";
 import "../styles/navbar.css";
 
 
@@ -60,6 +60,7 @@ function Navbar() {
                     <div className="logocontainer">
                         <Link to="/" onClick={closeMobileMenu}>
                             <img src={Logo} alt="TrucksZone Logo" className="logoImage" />
+                            <h1 style={{color:"black"}}>Trucks<span style={{color:"red"}}>Zone</span></h1>
                         </Link>
                     </div>
 
@@ -67,7 +68,6 @@ function Navbar() {
                         <ul className={isMobileMenuOpen ? 'mobile-menu-open' : ''}>
                             <li><Link to="/" onClick={closeMobileMenu}> Home</Link></li>
                             <li><Link to="/allTrucks" onClick={closeMobileMenu}> Trucks</Link></li>
-                            <li><Link to="/about" onClick={closeMobileMenu}> About</Link></li>
                             <li><Link to="/contact" onClick={closeMobileMenu}> Contact</Link></li>
                             {user ? (
                                 <>
@@ -108,7 +108,6 @@ function Navbar() {
                     <ul>
                         <li><Link to="/" onClick={closeMobileMenu}><FontAwesomeIcon icon={faHome} className="nav-icon" /> Home</Link></li>
                         <li><Link to="/allTrucks" onClick={closeMobileMenu}><FontAwesomeIcon icon={faTruckFast} className="nav-icon" /> Trucks</Link></li>
-                        <li><Link to="/about" onClick={closeMobileMenu}><FontAwesomeIcon icon={faInfoCircle} className="nav-icon" /> About</Link></li>
                         <li><Link to="/contact" onClick={closeMobileMenu}><FontAwesomeIcon icon={faEnvelope} className="nav-icon" /> Contact</Link></li>
                         {user ? (
                             <>

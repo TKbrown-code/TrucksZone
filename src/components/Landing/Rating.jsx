@@ -3,11 +3,11 @@ import "./styles/Rating.css";
 
 function Rating() {
     const items = [
-        { value: 500000, label: "Trucks Available" },
-        { value: 150000, label: "Satisfied Customers" },
-        { value: 20, label: "Years of Experience" },
+        { value: 50000, label: "Trucks Available" },
+        { value: 5000, label: "Satisfied Customers" },
+        { value: 25, label: "Years of Experience" },
         { value: 35, label: "Trusted Partners" },
-        { value: 170000, label: "Trucks Sold" },
+        { value: 10000, label: "Trucks Sold" },
     ];
 
     return (

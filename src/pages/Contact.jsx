@@ -30,8 +30,7 @@ export default function ContactPage() {
                 <FontAwesomeIcon icon={faPhone} className="contact-icon" />
               </div>
               <h3 className="contact-title">Phone</h3>
-              <p className="contact-text">1-800-TRUCKS</p>
-              <p className="contact-text">(555) 123-4567</p>
+              <p className="contact-text">+1(808)8572794</p>
             </div>
 
             <div className="contact-info-card" data-aos="fade-up" data-aos-delay="200">
@@ -39,8 +38,7 @@ export default function ContactPage() {
                 <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
               </div>
               <h3 className="contact-title">Email</h3>
-              <p className="contact-text">sales@truckszone.com</p>
-              <p className="contact-text">service@truckszone.com</p>
+              <p className="contact-text">truckzone678@gmail.com</p>
             </div>
 
             <div className="contact-info-card" data-aos="fade-up" data-aos-delay="300">
@@ -48,8 +46,7 @@ export default function ContactPage() {
                 <FontAwesomeIcon icon={faMapPin} className="contact-icon" />
               </div>
               <h3 className="contact-title">Location</h3>
-              <p className="contact-text">1234 Highway Boulevard</p>
-              <p className="contact-text">Dallas, TX 75001</p>
+              <p className="contact-text">hawaii</p>
             </div>
 
             <div className="contact-info-card" data-aos="fade-up" data-aos-delay="400">

@@ -74,7 +74,6 @@ export default function Chat() {
   }, []);
 
   // load current user and profile once on mount
-  /*
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -97,7 +96,6 @@ export default function Chat() {
     })();
     return () => { mounted = false; };
   }, []);
-*/
   const setupRealtimeSubscription = useCallback(() => {
     // cleanup previous channel if exists
     if (realtimeChannelRef.current) {
@@ -130,10 +128,52 @@ export default function Chat() {
 
               if (belongsToConversation) {
                 const media = await fetchMediaForMessage(newMsg.id);
-                setMessages(prev => [...prev, { ...newMsg, chat_media: media }]);
+                setMessages(prev => {
+                  // Check if message already exists to prevent duplicates
+                  const messageExists = prev.some(msg => msg.id === newMsg.id);
+                  if (!messageExists) {
+                    return [...prev, { ...newMsg, chat_media: media }];
+                  }
+                  return prev;
+                });
               }
             } catch (err) {
               console.error('Realtime handler error', err);
+            }
+          })();
+        }
+      )
+      .on(
+        'postgres_changes',
+        { event: 'UPDATE', schema: 'public', table: 'chat_messages' },
+        (payload) => {
+          const updatedMsg = payload.new;
+
+          // determine current user id in async-safe way
+          (async () => {
+            try {
+              const { data } = await supabase.auth.getUser();
+              const me = data?.user;
+              if (!me) return;
+
+              // only update messages that belong to the current conversation
+              const belongsToConversation = (
+                (updatedMsg.sender_id === me.id && updatedMsg.receiver_id === selectedUser?.user_id) ||
+                (updatedMsg.receiver_id === me.id && updatedMsg.sender_id === selectedUser?.user_id)
+              );
+
+              if (belongsToConversation) {
+                // Update existing message in state
+                setMessages(prev => 
+                  prev.map(msg => 
+                    msg.id === updatedMsg.id 
+                      ? { ...updatedMsg, chat_media: msg.chat_media }
+                      : msg
+                  )
+                );
+              }
+            } catch (err) {
+              console.error('Realtime UPDATE handler error', err);
             }
           })();
         }
@@ -764,7 +804,7 @@ export default function Chat() {
 
             <div className="messages-container">
               {messages.length > 0 ? (
-                messages.map((message, index) => {
+                messages.filter(message => message != null).map((message, index) => {
                   const showDate = index === 0 || formatDate(message.created_at) !== formatDate(messages[index - 1].created_at);
                   const encryptionKey = getEncryptionKey(message.sender_id, message.receiver_id);
                   const decryptedMessage = message.message ? decryptMessage(message.message, encryptionKey) : '';
@@ -790,7 +830,7 @@ export default function Chat() {
                               {formatTime(message.created_at)}
                               <div className="message-actions">
                                 {message.is_admin_message && message.sender_id === currentUser?.id && (
-                                  <button onClick={() => startEditing(message.id, message.message)} className="message-action-btn edit-btn" title="Edit message"><FontAwesomeIcon icon={faEdit} /></button>
+                                  <button onClick={() => startEditing(message.id, message.message)} className="message-action-btn edit-btn1" title="Edit message"><FontAwesomeIcon icon={faEdit} /></button>
                                 )}
                                 <button onClick={() => handleDeleteMessage(message.id)} className="message-action-btn delete-btn" title="Delete message"><FontAwesomeIcon icon={faTrash} /></button>
                               </div>

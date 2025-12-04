@@ -1,6 +1,8 @@
 import { Truck, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import "../styles/footer.css";
 import logo from "../assets/Logo.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
 
@@ -73,28 +75,28 @@ export default function Footer() {
             <h3 className="section-title">Contact Info</h3>
             <ul className="contact-info">
               <li className="contact-item">
-                <Phone className="contact-icon" />
+                <Phone  />
                 <div className="contact-details">
                   <p className="contact-label">Phone</p>
-                  <a href="tel:+1234567890" className="contact-link">
-                    +1 (234) 567-890
+                  <a href="tel:+18088572794" className="contact-link">
+                    +1(808)857-2794
                   </a>
                 </div>
               </li>
               <li className="contact-item">
-                <Mail className="contact-icon" />
+                <FontAwesomeIcon icon={faEnvelope}  />
                 <div className="contact-details">
                   <p className="contact-label">Email</p>
-                  <a href="mailto:info@truckszone.com" className="contact-link">
-                    info@truckszone.com
+                  <a href="mailto:truckzone678@gmail.com" className="contact-link">
+                    truckzone678@gmail.com
                   </a>
                 </div>
               </li>
               <li className="contact-item">
-                <MapPin className="contact-icon" />
+                <MapPin  />
                 <div className="contact-details">
                   <p className="contact-label">Address</p>
-                  <p className="contact-text">123 Truck Street, Industrial Area, City, Country</p>
+                  <p className="contact-text">Hawaii / USA</p>
                 </div>
               </li>
             </ul>

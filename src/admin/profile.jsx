@@ -72,8 +72,8 @@ function Profile(){
                     id,
                     created_at,
                     user_id,
-                    Truck_id,
-                    Request_text,
+                    truck_id,
+                    request_text,
                     trucks!inner (
                         title,
                         brand
@@ -92,7 +92,7 @@ function Profile(){
             const formattedRequests = data.map(request => ({
                 ...request,
                 truncatedUserId: request.user_id ? request.user_id.substring(0, 8) : 'Unknown',
-                truncatedTruckId: request.Truck_id ? request.Truck_id.substring(0, 8) : 'Unknown',
+                truncatedTruckId: request.truck_id ? request.truck_id.substring(0, 8) : 'Unknown',
                 userName: request.profiles?.name || 'Unknown User'
             }));
 
@@ -474,7 +474,7 @@ function Profile(){
                                 {displayedTruckRequests.map((request) => (
                                     <div key={request.id} className="truck-request-item">
                                         <p><strong>Truck:</strong> {request.trucks?.title || 'Unknown Truck'} ({request.trucks?.brand || 'Unknown Brand'})</p>
-                                        <p><strong>Request:</strong> {request.Request_text || 'No request text'}</p>
+                                        <p><strong>Request:</strong> {request.request_text || 'No request text'}</p>
                                         <p><strong>User:</strong> {request.userName} | <strong>User ID:</strong> {request.truncatedUserId} | <strong>Truck ID:</strong> {request.truncatedTruckId}</p>
                                         <small>{new Date(request.created_at).toLocaleString()}</small>
                                     </div>

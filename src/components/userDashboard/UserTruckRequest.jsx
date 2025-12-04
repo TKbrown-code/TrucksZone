@@ -420,10 +420,10 @@ const handleRequestSelect = async (request) => {
                 </div>
               </div>
               
-              {selectedRequest.Request_text && (
+              {selectedRequest.request_text && (
                 <div className="request-notes">
                   <h4>Your Request Notes</h4>
-                  <p>{selectedRequest.Request_text}</p>
+                  <p>{selectedRequest.request_text}</p>
                 </div>
               )}
               

@@ -15,9 +15,6 @@ function Home() {
       <div data-aos="fade-down">
         <Header />
       </div>
-      <div data-aos="fade-up">
-        <Rating />
-      </div>
       <div data-aos="fade-right">
         <WhyChooseUs />
       </div>

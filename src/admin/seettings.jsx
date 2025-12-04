@@ -39,16 +39,16 @@ const Settings = () => {
       if (data) {
         setProfileData({
           email: user.email || '',
-          name: data.full_name || '',
+          full_name: data.full_name || '',
           phone: data.phone || '',
-          location: data.address || ''
+          address: data.address || ''
         });
       } else {
         setProfileData({
           email: user.email || '',
-          name: '',
+          full_name: '',
           phone: '',
-          location: ''
+          address: ''
         });
       }
     } catch (error) {
@@ -82,9 +82,9 @@ const Settings = () => {
         .from('profiles')
         .upsert({
           user_id: user.id,
-          name: profileData.full_name,
+          full_name: profileData.full_name,
           phone: profileData.phone,
-          location: profileData.address,
+          address: profileData.address,
           updated_at: new Date().toISOString()
         });
 

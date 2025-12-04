@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { 
   Truck, Gauge, Cog, Calendar, Navigation, 
   Fuel, ChevronLeft, ChevronRight, Check, 
-  Phone, Mail, Share2, Heart, Play, ArrowLeft, 
+  Phone, Mail, Share2, Heart, Play, ArrowLeft,
+  Target, 
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
@@ -207,25 +208,63 @@ export function TruckDetailPage() {
 
   const addToWishlist = async () => {
     try {
-      const { data, error } = await supabase
-        .from('TruckRequest')
-        .insert({
-          Truck_id: truck.id,
-          user_id: user.user_id,
-          Request_text: RequestText
-        });
-
-      if (error){ 
+      // Validate required data
+      if (!RequestText || RequestText.trim() === '') {
         Swal.fire({
           icon: "error",
           title: "Error",
           text: "Please enter your request text",
-        }); return}
+        });
+        return;
+      }
 
+      if (!truck?.id) {
         Swal.fire({
-          icon: "success",
-          text: "Request send successfully"
+          icon: "error",
+          title: "Error", 
+          text: "Truck information not available",
+        });
+        return;
+      }
+
+      // Get current authenticated user
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      
+      if (authError || !user?.id) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Please login to submit a request",
+        });
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from('TruckRequest')
+        .insert({
+          truck_id: truck.id,
+          user_id: user.id,
+          request_text: RequestText.trim()
         })
+        .select()
+        .single();
+
+      if (error){ 
+        console.error('Truck request error:', error);
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: error.message || "Failed to submit request",
+        });
+        return;
+      }
+
+      Swal.fire({
+        icon: "success",
+        text: "Request sent successfully"
+      });
+
+      setRequestText(''); // Clear the request text after successful submission
     } catch (error) {
       // Error adding truck to wishlist
     }
@@ -237,13 +276,19 @@ export function TruckDetailPage() {
       { 
         newValue: "chat",
         truckdata: {
-          truckId: truck.id.substring(0, 8),
+          truckId: (truck.id).substring(0, 8),
           truckModel: truck.model,
           truckBrand: truck.brand,
           truckImage: truck.truck_images?.[0]?.image_url || null
         }
       }
     });
+  };
+
+   const handleClick = () => {
+    const message = `Hello!, I want more info on this truck title: ${truck.title || 'N/A'}, model: ${truck.model || 'N/A'}, id: ${(truck.id).slice(0,8) || 'N/A'}`;
+    const whatsappUrl = `https://wa.me/18088572794?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -484,7 +529,7 @@ export function TruckDetailPage() {
                 <button className="td-primary-button" onClick={handleNavigate}>
                   <FontAwesomeIcon icon={faComment}/> Chat With Us
                 </button>
-                <button className="td-secondary-button">
+                <button className="td-secondary-button" onClick={handleClick}>
                   <FaWhatsapp className="spec-icon"/> Contact Us on WhatsApp
                 </button>
                 <button className="td-tertiary-button">
