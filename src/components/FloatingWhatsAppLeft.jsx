@@ -3,7 +3,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import './FloatingWhatsAppLeft.css';
 
 const FloatingWhatsAppLeft = ({ 
-  phoneNumber = '1234567890',
+  phoneNumber = '+18088572794',
   message = 'Hello! I am interested in your trucks.'
 }) => {
   const [isVisible, setIsVisible] = useState(false);

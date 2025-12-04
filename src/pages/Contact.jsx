@@ -126,7 +126,7 @@ export default function ContactPage() {
               <h2 className="map-title">Visit our showroom</h2>
               <div className="map-container">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.0415632594!2d-96.87195745!3d32.8205865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX!5e0!3m2!1sen!2sus!4v1635959634234!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.0415632594!2d-96.87195745!3d32.8205865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2shawaii%2C%20TX!5e0!3m2!1sen!2sus!4v1635959634234!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -137,7 +137,7 @@ export default function ContactPage() {
                 ></iframe>
               </div>
               <p className="map-description">
-                Visit us at our Dallas location to see our full inventory of trucks in person. 
+                Visit us at hawaii to see our full inventory of trucks in person. 
                 Our expert team is ready to help you find the perfect vehicle for your needs.
               </p>
               <a
