@@ -6,14 +6,6 @@ import './styles/FeaturedProduct.css';
 import aos from "aos";
 import "aos/dist/aos.css";
 
-aos.init({
-  duration: 700,
-  offset: 100,
-  once: true,
-  mirror: false,           // Disable reverse animation
-  disable: window.innerWidth < 768 // Disable on mobile
-});
-
 const FeaturedProduct = () => {
   const [trucks, setTrucks] = useState([]);
   const [loading, setLoading] = useState(true);

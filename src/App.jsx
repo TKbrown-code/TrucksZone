@@ -25,13 +25,10 @@ import "./styles/sweetalert-notifications.css";
 
 // Initialize AOS
 AOS.init({
-  duration: 700,
-  offset: 100,
+  duration: 1000,
   once: true,
-  mirror: false,           // Disable reverse animation
-  disable: window.innerWidth < 768 // Disable on mobile
+  offset: 100
 });
-
 
 function ProtectedAuth() {
   const { user, initialising } = useAuth();
@@ -58,7 +55,9 @@ export default function App() {
                 <>
                 <div style={{overflow: "hidden"}}>
                   <Navbar />
-                  <Home />
+                  <div data-aos="fade-left">
+                    <Home />
+                  </div>
                   <FloatingChat />
                   <FloatingWhatsAppLeft />
                   <BackToTop />
