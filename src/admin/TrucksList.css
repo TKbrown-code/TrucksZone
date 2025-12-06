@@ -472,4 +472,8 @@
         flex-direction: column;
         gap: 15px;
     }
+    .truck-details .actions{
+        flex-direction: row;
+        justify-content: center;
+    }
 }

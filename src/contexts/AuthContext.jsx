@@ -286,9 +286,11 @@ export function AuthProvider({ children }) {
       await supabase.auth.signOut();
     } catch (err) {
       console.error("Supabase signOut error", err);
-    } finally {
+      // If signOut fails, still clear local state
       clearAuthState();
     }
+    // The auth state change listener will handle clearing state when session becomes null
+    // But we don't call clearAuthState here to avoid double-clearing
   }, [clearAuthState]);
 
   const value = useMemo(

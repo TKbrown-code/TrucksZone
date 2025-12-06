@@ -9,7 +9,7 @@ const stats = [
   },
   {
     icon: Users,
-    value: "5000+",
+    value: "10000+",
     label: "Happy Customers",
   },
   {

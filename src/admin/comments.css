@@ -181,7 +181,7 @@
 
 /* Comments Form Styles */
 .comments-form {
-  max-width: 600px;
+  max-width: 800px !important;
   margin: 0 auto;
 }
 

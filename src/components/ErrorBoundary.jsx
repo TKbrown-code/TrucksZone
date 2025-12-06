@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/ErrorBoundary.css";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: "2rem", textAlign: "center" }}>
+        <div className="error-boundary">
           <h2>Something went wrong.</h2>
           <p>{this.state.error?.message || "Unexpected error"}</p>
           <button onClick={this.handleRetry}>Try again</button>

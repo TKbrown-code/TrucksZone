@@ -6,6 +6,14 @@ import './styles/FeaturedProduct.css';
 import aos from "aos";
 import "aos/dist/aos.css";
 
+aos.init({
+  duration: 700,
+  offset: 100,
+  once: true,
+  mirror: false,           // Disable reverse animation
+  disable: window.innerWidth < 768 // Disable on mobile
+});
+
 const FeaturedProduct = () => {
   const [trucks, setTrucks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -123,11 +131,13 @@ const FeaturedProduct = () => {
     );
   }
 
+  
+
   return (
     <div className="fp-container">
       <div className="fp-header">
-        <h2 className="fp-header-title" data-aos="float-up" data-aos-duration="1500">Featured Trucks</h2>
-        <p className="fp-header-subtitle" data-aos="float-up" data-aos-duration="2000">Explore our featured trucks and find the perfect truck for your needs.</p>
+        <h2 className="fp-header-title" data-aos="fade-up" data-aos-duration="1500">Featured Trucks</h2>
+        <p className="fp-header-subtitle" data-aos="fade-up" data-aos-duration="2000">Explore our featured trucks and find the perfect truck for your needs.</p>
       </div>
       <div className="fp-trucks-grid">
         {trucks.map(truck => {

@@ -285,6 +285,9 @@
         margin-left: 200px;
         width: calc(100% - 200px);
     }
+    .mobile-header .hamburger-menu{
+        padding: 10px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -335,6 +338,9 @@
     .sidebar-overlay.active {
         opacity: 1;
         pointer-events: auto;
+    }
+    .siderheader__button{
+        display: none;
     }
 }
 

@@ -28,7 +28,7 @@ export default function WhyChooseUs() {
 return(
 <section id="features" className="why-choose-us">
       <div className="why-choose-us__container">
-        <div className="why-choose-us__header">
+        <div className="why-choose-us__header" data-aos="fade-up" data-aos-duration="2000">
           <h2 className="why-choose-us__title">Why Choose TrucksZone</h2>
           <p className="why-choose-us__subtitle">Excellence in every aspect of truck sales and service</p>
         </div>
@@ -39,6 +39,8 @@ return(
               key={index}
               className="why-choose-us__feature-card"
               style={{ animationDelay: `${index * 100}ms` }}
+              data-aos="fade-up"
+              data-aos-duration="3000"
             >
               <div className="why-choose-us__icon-container">
                 <feature.icon className="why-choose-us__icon" />

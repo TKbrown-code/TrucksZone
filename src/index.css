@@ -37,6 +37,7 @@
   body{
     scrollbar-width: thin;
     scrollbar-color: white;
+    background-color: var(--bg-color);
   }
 
   ::-webkit-scrollbar {

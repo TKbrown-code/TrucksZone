@@ -4,7 +4,7 @@ import "./styles/Rating.css";
 function Rating() {
     const items = [
         { value: 50000, label: "Trucks Available" },
-        { value: 5000, label: "Satisfied Customers" },
+        { value: 10000, label: "Satisfied Customers" },
         { value: 25, label: "Years of Experience" },
         { value: 35, label: "Trusted Partners" },
         { value: 10000, label: "Trucks Sold" },

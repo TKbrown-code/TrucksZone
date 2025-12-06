@@ -12,33 +12,15 @@ import Footer from "../components/footer"
 function Home() {
   return (
     <>
-      <div data-aos="fade-down">
         <Header />
-      </div>
-      <div data-aos="fade-right">
         <WhyChooseUs />
-      </div>
-      <div data-aos="fade-left">
         <ImageSlide/>
-      </div>
-      <div data-aos="zoom-in">
         <FeaturedProduct /> 
-      </div>
-      <div data-aos="fade-up">
         <CTA />
-      </div>
-      <div data-aos="fade-right">
         <Testimonials />
-      </div>
-      <div data-aos="fade-left">
         <About />
-      </div>
-      <div data-aos="fade-up">
         <Partners />
-      </div>
-      <div data-aos="fade-up">
         <Footer />
-      </div>
     </>
   );
 }

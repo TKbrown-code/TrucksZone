@@ -74,11 +74,11 @@ function Profile(){
                     user_id,
                     truck_id,
                     request_text,
-                    trucks!inner (
+                    trucks!truckrequest_truck_id_fkey (
                         title,
                         brand
                     ),
-                    profiles!TruckRequest_user_id_fkey (
+                    profiles!truckrequest_user_id_fkey (
                         name,
                         email
                     )

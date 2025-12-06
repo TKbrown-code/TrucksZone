@@ -1,6 +1,6 @@
 .ratingcontainer{
     width: 100%;
-    background: rgb(255, 255, 255);
+    background: rgba(0, 0, 0, 0);
     border-bottom: rgba(128, 128, 128, 0.137) 1px solid;
 }
 
@@ -26,7 +26,7 @@
     font-family: "Bowlby One", sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: rgb(61, 60, 60);
+    color: rgb(245, 244, 244);
     margin-bottom: 0px;
     transition: 0.3s ease;
 }
@@ -66,7 +66,6 @@
         font-size: 0.7rem;
     }
     .ratingcontainer .rating{
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 10px;
@@ -76,5 +75,12 @@
 @media  screen and (max-width: 600px) {
      .ratingcontainer{
         display: none;
+    }
+}
+
+@media (max-width: 1050px) {
+    .ratingcontainer .rating{
+        justify-content: center;
+        align-items: center;
     }
 }

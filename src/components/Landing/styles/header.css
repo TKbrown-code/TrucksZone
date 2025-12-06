@@ -1,6 +1,6 @@
 header{
     width: 100% !important;
-    height: 95vh;
+    height: 100vh;
     background: white;
 }
 
@@ -19,7 +19,7 @@ header .headercontainer .headeroverlay{
     left: 0;
     top: 0;
     width: 100% !important;
-    height: 100%;
+    height: inherit;
    background: linear-gradient(to right, rgba(0, 0, 0, 0.753), rgba(0, 0, 0, 0.671)) ;
     z-index: 1;
 }
@@ -33,6 +33,7 @@ header .headercontainer .headeroverlay .headercontent{
     align-items: start;
     height: 100%;
     gap: 10px;
+    flex-direction: column;
 }
 
 header .headercontainer .headeroverlay .headercontentleft{
@@ -223,10 +224,6 @@ header .headercontainer .headerimage img{
         justify-content: center;
     }
     
-    header .headercontainer .headeroverlay .headercontentright {
-        display: none;
-    }
-    
     header .headercontainer .headeroverlay .headercontent h1 {
         font-size: 2.3rem;
         letter-spacing: 1px;
@@ -273,34 +270,71 @@ header .headercontainer .headerimage img{
 }
 
 /* Landscape mobile adjustments */
-@media (max-width: 768px) and (orientation: landscape) {
+@media (max-width: 768px)  {
     header {
-        height: auto;
-        min-height: 80vh;
+        height: 95vh;
     }
     
-    header .headercontainer .headeroverlay .headercontent {
-        height: 100%;
-    }
-    
-    header .headercontainer .headerimage {
-        height: 100%;
-    }
-}
-
-/* Tablet adjustments */
-@media (min-width: 769px) and (max-width: 1024px) {
     header .headercontainer .headeroverlay .headercontent {
         padding: 0 30px;
     }
+
+    header .headercontainer .headeroverlay{
+        height: 100%;
+    }
+
+    header .headercontainer .headeroverlay .headercontent{
+        height: 100%;
+        padding: 0;
+    }
+
+    header .headercontainer .headeroverlay .headercontent .headercontentleft{
+        margin-bottom: 50px;
+    }
     
     header .headercontainer .headeroverlay .headercontent h1 {
-        font-size: 3.5rem;
+        margin: 8px 10px;
+        padding: 8px 10px;
+        letter-spacing: 0px;
+        line-height: 1.2;
+        font-size: 2.2rem;
     }
     
     header .headercontainer .headeroverlay .headercontent h2 {
         font-size: 1.7rem;
     }
+      header .headercontainer .headeroverlay .headercontent button{
+        margin: 20px 25px 0 25px;
+    }
 }
 
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1015px) {
+    header .headercontainer .headeroverlay .headercontent {
+        padding: 0 30px;
+    }
 
+    header .headercontainer .headeroverlay{
+        height: 100%;
+    }
+
+    header .headercontainer .headeroverlay .headercontent{
+        height: inherit;
+        padding: 0;
+    }
+    
+    header .headercontainer .headeroverlay .headercontent h1 {
+        margin: 8px 10px;
+        padding: 8px 10px;
+        letter-spacing: 0px;
+        line-height: 1.2;
+        font-size: 2.2rem;
+    }
+    
+    header .headercontainer .headeroverlay .headercontent h2 {
+        font-size: 1.7rem;
+    }
+      header .headercontainer .headeroverlay .headercontent button{
+        margin: 20px 25px 0 25px;
+    }
+}

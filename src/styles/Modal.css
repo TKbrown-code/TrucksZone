@@ -4,7 +4,7 @@
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(2px);
   animation: fadeIn 0.3s ease;
-  z-index: 1000;
+  z-index: 500;
   pointer-events: none;
 }
 
@@ -77,4 +77,11 @@
 @keyframes slideUp {
   from { transform: translate(-50%, -45%); opacity: 0; }
   to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+@media (max-width:786px) {
+  .modal-content{
+    transform: translate(-53%, -50%);
+    min-width: 90%;
+  }
 }
